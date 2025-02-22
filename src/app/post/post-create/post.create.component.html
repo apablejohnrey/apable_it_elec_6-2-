@@ -1,6 +1,12 @@
-<h2>Hello World</h2>
-<textarea [(ngModel)]="enteredValue"></textarea>
-<hr>
-<button (click)="onAddPost()">Save</button>
-
-{{newPost}}
+<mat-card>
+    <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field >
+        <input matInput type="text" name="title" ngModel required #title="ngModel" placeholder="Title">
+        <mat-error *ngif="title.invalid">Enter Title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea rows="6" matInput name="content"ngModel="" required #content="ngModel" placeholder="Content"></textarea>
+    </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+    </form>
+</mat-card>
