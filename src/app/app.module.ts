@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule} from '@angular/common/http';
 import { PostsService } from './post/posts.service';
+
 @NgModule({ 
   declarations: [
     AppComponent,
