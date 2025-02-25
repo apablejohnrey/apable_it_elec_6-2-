@@ -1,0 +1,45 @@
+/* Card Styling */
+mat-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f5f5f5; /* Light gray background */
+    border-left: 5px solid #1976d2; /* Blue accent border */
+}
+
+/* Form Field Styling */
+mat-form-field {
+    width: 100%;
+}
+
+/* Input and Textarea Styling */
+input, textarea {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Textarea Customization */
+textarea {
+    resize: none; /* Prevents manual resizing */
+}
+
+/* Button Styling */
+button {
+    align-self: flex-end;
+    margin-top: 10px;
+    background-color: #1976d2; /* Primary blue */
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+}
