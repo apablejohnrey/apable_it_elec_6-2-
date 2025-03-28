@@ -15,6 +15,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule} from '@angular/common/http';
 import { PostsService } from './post/posts.service';
+import { AppRoutingModule } from './ app-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import {ReactiveFormsModule} from '@angular/forms';  
+import { Observable } from 'rxjs';
 
 @NgModule({ 
   declarations: [
@@ -35,7 +39,11 @@ import { PostsService } from './post/posts.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule, 
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
