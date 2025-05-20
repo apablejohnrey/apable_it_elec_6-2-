@@ -13,22 +13,33 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { PostsService } from './post/posts.service';
 import { AppRoutingModule } from './ app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import {ReactiveFormsModule} from '@angular/forms';  
-import { Observable } from 'rxjs';
+import {MatPaginatorModule} from '@angular/material/paginator';  
+import {LoginComponent} from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
+import { AuthInterceptor } from './authentication/auth-interceptor';
+import { MatIconModule } from '@angular/material/icon';
+import { ErrorInterceptor } from './error-interceptor'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorComponent } from './error.component';
 
 @NgModule({ 
   declarations: [
     AppComponent,
     PostCreateComponent,
     HeaderComponent,
-    PostListComponent
+    PostListComponent,
+    LoginComponent,
+    SignupComponent,
+    ErrorComponent
    
   ],
   imports: [
+    MatDialogModule,  
     BrowserModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
@@ -43,9 +54,25 @@ import { Observable } from 'rxjs';
     AppRoutingModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-  
+    MatPaginatorModule,  
+    MatIconModule,
+    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+  providers: [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  }
+], 
+    
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

@@ -3,4 +3,10 @@ export interface Post{
     title: string;
     content: string;
     imagePath: string;  
+    likes: number;
+    comments?: any[]; 
+    creator: string; 
+    views?: number;
+    viewed?: boolean; 
+
 }
